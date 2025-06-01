@@ -3,9 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Unit Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    
+    <!-- Navbar -->
+    <div id="navigationBar" class="bg-blue-500 text-white p-4 md:flex md:justify-between">
+        <h1 class="text-2xl">Unit Converter</h1>
+        <div class="mt-4 md:mt-0">
+            <button id="weightButton" class="hover:bg-blue-700 px-4 py-2 rounded">Weight</button>
+            <button id="distanceButton" class="hover:bg-blue-700 px-4 py-2 rounded">Distance</button>
+            <button id="temperatureButton" class="hover:bg-blue-700 px-4 py-2 rounded">Temperature</button>
+        </div>
+    </div>
+
+    <!-- Weight Tab -->
+    <div id="weightTab" class="p-6 flex flex-col items-center tab-content">
+        <h2 class="text-xl font-bold mb-4">Weight Conversion</h2>
+        <div class="flex flex-col items-center w-full max-w-md">
+            <div class="flex w-full mb-4">
+                <input id="weightInput1" type="text" class="p-4 border rounded w-1/2 mr-2" placeholder="Enter value">
+                <input id="weightInput2" type="text" class="p-4 border rounded w-1/2 ml-2" placeholder="Converted value">
+            </div>
+            <div class="flex w-full mb-4">
+                <select id="weightDirection1" class="p-4 border rounded w-1/2 mr-2">
+                    <option value="lb">Pound</option>
+                    <option value="kg">Kilogram</option>
+                </select>
+                <select id="weightDirection2" class="p-4 border rounded w-1/2 ml-2">
+                    <option value="kg">Kilogram</option>
+                    <option value="lb">Pound</option>
+                </select>
+            </div>
+            <!-- Convert Button -->
+            <button onclick="convertWeight()" class="bg-blue-500 text-white p-2 rounded w-full mb-4">Convert</button>
+        </div>
+    </div>
+
+    <!-- Distance Tab -->
+    <div id="distanceTab" class="p-6 flex flex-col items-center tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Distance Conversion</h2>
+        <div class="flex flex-col items-center w-full max-w-md">
+            <div class="flex w-full mb-4">
+                <input id="distanceInput1" type="text" class="p-4 border rounded w-1/2 mr-2" placeholder="Enter value">
+                <input id="distanceInput2" type="text" class="p-4 border rounded w-1/2 ml-2" placeholder="Converted value">
+            </div>
+            <div class="flex w-full mb-4">
+                <select id="distanceDirection1" class="p-4 border rounded w-1/2 mr-2">
+                    <option value="mi">Mile</option>
+                    <option value="km">Kilometer</option>
+                </select>
+                <select id="distanceDirection2" class="p-4 border rounded w-1/2 ml-2">
+                    <option value="km">Kilometer</option>
+                    <option value="mi">Mile</option>
+                </select>
+            </div>
+            <!-- Convert Button -->
+            <button onclick="convertDistance()" class="bg-blue-500 text-white p-2 rounded w-full mb-4">Convert</button>
+        </div>
+    </div>
+
+    <!-- Temperature Tab -->
+    <div id="temperatureTab" class="p-6 flex flex-col items-center tab-content hidden">
+        <h2 class="text-xl font-bold mb-4">Temperature Conversion</h2>
+        <div class="flex flex-col items-center w-full max-w-md">
+            <div class="flex w-full mb-4">
+                <input id="temperatureInput1" type="text" class="p-4 border rounded w-1/2 mr-2" placeholder="Enter value">
+                <input id="temperatureInput2" type="text" class="p-4 border rounded w-1/2 ml-2" placeholder="Converted value">
+            </div>
+            <div class="flex w-full mb-4">
+                <select id="temperatureDirection1" class="p-4 border rounded w-1/2 mr-2">
+                    <option value="c">Celsius</option>
+                    <option value="f">Fahrenheit</option>
+                </select>
+                <select id="temperatureDirection2" class="p-4 border rounded w-1/2 ml-2">
+                    <option value="f">Fahrenheit</option>
+                    <option value="c">Celsius</option>
+                </select>
+            </div>
+            <!-- Convert Button -->
+            <button onclick="convertTemperature()" class="bg-blue-500 text-white p-2 rounded w-full mb-4">Convert</button>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="scripts.js"></script>
 </body>
 </html>
